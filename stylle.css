@@ -1,0 +1,65 @@
+
+
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container-tabuleiro {
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    
+    
+}
+.tanuleiro{
+    
+}
+
+.quadrado {
+    align-items: center;
+    border-color: red;
+    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    margin: 1px 1px 5px 1px;
+    
+}
+.container-teclado{
+   display: flex;;
+}
+.teclado{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    display: block;
+    text-align: center;
+    align-items: center;
+    width: 430px;
+    margin-top: 10px;
+    padding: 10px;
+    
+    
+}
+.letras{
+    margin: 0px 0px 5px ;
+    height: 40px;
+    width: 30px;
+    color: #000000;
+    background-color: #d3d6da;
+    border: solid 1px black;
+    border-radius: 5px;
+}
+.enter, .ctrl {
+    width: 50px;
+    height: 40px;
+    background-color: #d3d6da;
+    border: solid 1px black;
+    border-radius: 5px;
+}

@@ -1,63 +1,85 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 
 body {
     margin: 0;
     padding: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    height: 100vh;
+    
+}
+header{
+    position: fixed;
+    top: 0;
+    padding: 10px;
+    background-color: #D3D4D8;
+    width: 100%;
+    
+}
+.center{
+    
+    align-items: center;
+    justify-items: center;
 }
 .container-tabuleiro {
-    padding: 100px;
-    
-    
+   display: flex;
+   max-width: 250px;
+   flex-wrap: wrap;
+     
 }
-.tabuleiro{
-
-    width: 64px;
-    height: 64px;
-    background-color: #d3d6da;
-    line-height: 64px;
-    color: #fff;
-    text-align: center;
-    margin: 1px 1px 5px 1px;
-    padding: 5px;
+.tabuleiro {
+    width: 40px;
+    height: 40px;
+    border: solid 1.5px #d3d6da;
+    color: #000000;
     box-sizing: border-box;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
+    margin: 2px;
+    font-family: 'Inter', sans-serif;
+    
 }
-
-
 .container-teclado{
-   display: flex;;
+    display: flex;
+    max-width: 400px;
+    flex-wrap: wrap;
+    
+
 }
 .teclado{
-    box-sizing: border-box;
     display: flex;
-    justify-content: center;
     display: block;
     text-align: center;
-    align-items: center;
     width: 430px;
     margin-top: 10px;
-    padding: 10px;
-    
-    
+   margin-right: 40px;
 }
-.letras, .titulo{
+.letras{
+    box-sizing: border-box;
     margin: 0px 0px 5px ;
     height: 40px;
-    width: 30px;
+    width: 28px;
     color: #000000;
-    background-color: #d3d6da;
+    background-color: #D3D4D8;
     border: none;
     border-radius: 5px;
     font-weight: bold;
     font-family: sans-serif;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+        
 }
 .enter, .ctrl {
     width: 50px;
     height: 40px;
-    background-color: #d3d6da;
+    background-color: #D3D4D8;
     border: none;
     border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
 }

@@ -2,128 +2,140 @@
 
 /* Reset CSS */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-  background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+
 }
 
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  border-bottom: 1px solid #d3d6da;
-  background-color: #fff;
-  z-index: 1000;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    border-bottom: 1px solid #d3d6da;
+    background-color: #fff;
+    z-index: 1000;
 }
 
 .botao-hamburguer {
-  height: 50px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 0 10px;
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 10px;
 }
 
 .botao-hamburguer:hover {
-  background-color: #d3d4d8;
+    background-color: #d3d4d8;
 }
 
 .icones-direita {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 .icone {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .container-tabuleiro {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  max-width: 250px;
-  margin-top: 0; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 250px;
+    margin-top: 0;
 }
 
 .Quadrado {
-  width: 41px;
-  height: 41px;
-  margin: 2px;
-  border: 1.5px solid #d3d6da;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  color: #000;
+    width: 41px;
+    height: 41px;
+    margin: 2px;
+    border: 1.5px solid #d3d6da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: #000;
+    font-size: 20px;
 }
-.verde {
-  background-color: #6aaa64;
-  border: 1.5px solid #6aaa64;
+
+.verde, .letras.verde {
+    background-color: #6aaa64;
+    border: 1.5px solid #6aaa64;
+    color: #fff;
 }
-.amarelo {
-  background-color: #c9b458;
-  border: 1.5px solid #c9b458;
+
+.amarelo, .letras.amarelo {
+    background-color: #c9b458;
+    border: 1.5px solid #c9b458;
+    color: #fff;
 }
-.cinza {
-  background-color: #787c7e;
-  border: 1.5px solid #787c7e;
+
+.cinza, .letras.cinza {
+    background-color: #787c7e;
+    border: 1.5px solid #787c7e;
+    color: #fff;
 }
+
 .container-teclado {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9px;
 }
 
 .teclado {
-  width: 100%;
-  max-width: 430px;
-  text-align: center;
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+    
 }
 
 .linha-teclado {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 5px;
-  gap: 4px;
+    
+    display: flex;
+    justify-content: center;
+    gap: 4px;
 }
 
 .letras,
 .enter,
 .ctrl {
-  height: 40px;
-  border: none;
-  border-radius: 2px;
-  font-weight: bold;
-  cursor: pointer;
-  background-color: #d3d4d8;
-  color: #000;
-  margin: 2px;
+    
+    height: 38px;
+    border: none;
+    border-radius: 2px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #d3d4d8;
+    margin: 0 0 5px;
 }
 
 .letras {
-  width: 28px;
+    width: 28px;
 }
 
 .enter,
 .ctrl {
-  width: 50px;
-  font-size: 0.75rem;
+    width: 50px;
+    font-size: 0.75rem;
 }

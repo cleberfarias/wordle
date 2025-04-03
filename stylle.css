@@ -76,6 +76,7 @@ header {
     font-size: 1rem;
     color: #000;
     font-size: 20px;
+    box-sizing: border-box;
 }
 
 .verde, .letras.verde {
@@ -128,6 +129,7 @@ header {
     cursor: pointer;
     background-color: #d3d4d8;
     margin: 0 0 5px;
+    box-sizing: border-box;
 }
 
 .letras {

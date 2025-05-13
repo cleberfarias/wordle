@@ -28,4 +28,4 @@ Este é um clone simples do jogo Wordle, desenvolvido em **HTML**, **CSS** e **J
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/wordle-clone.git
+git clone https://github.com/cleberfarias/wordle-clone.git

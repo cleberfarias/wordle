@@ -3,7 +3,7 @@
 //  * gerar uma palavra por dia
 //  * selecionar a letra no quadrado
 //  * colocar logica para descobri a letra no clicando no quadrado
-//  *
+//  * implementar logica com as cores
 //  *
 //  */
 
@@ -27,7 +27,7 @@ const botoesTeclado = document.querySelectorAll(".letras, .ctrl");
 const quadrado = document.querySelectorAll(".Quadrado");
 
 let posicaoAtual = 0;
-let tentativas = 5
+let tentativas = 6
 
 botoesTeclado.forEach(function (botao) {
   botao.addEventListener("click", function () {

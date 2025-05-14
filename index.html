@@ -1,188 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Wordle</title>
-        <link rel="stylesheet" href="stylle.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <button class="botao-hamburguer" aria-label="Menu">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="22"
-                    width="22"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="game-icon"
-                >
-                    <line
-                        x1="3"
-                        y1="12"
-                        x2="21"
-                        y2="12"
-                    />
-                    <line
-                        x1="3"
-                        y1="6"
-                        x2="21"
-                        y2="6"
-                    />
-                    <line
-                        x1="3"
-                        y1="18"
-                        x2="21"
-                        y2="18"
-                    />
-                </svg>
-            </button>
-            <div class="icones-direita">
-                <a
-                    href="https://www.nytimes.com/2025/03/31/crosswords/wordle-review-1382.html"
-                    class="icone"
-                    target="_blank"
-                    aria-label="Dica"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="game-icon"
-                    >
-                        <path d="M12 2a10 10 0 0 1 10 10c0 4.5-3 6.5-4 7.5v2.5h-12v-2.5c-1-1-4-3-4-7.5a10 10 0 0 1 10-10z"/>
-                    </svg>
-                </a>
-                <a
-                    href="https://www.nytimes.com/2025/03/31/crosswords/wordle-review-1382.html"
-                    class="icone"
-                    target="_blank"
-                    aria-label="Estatísticas"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="game-icon"
-                    >
-                        <path d="M3 3v18h18"/>
-                        <rect
-                            x="7"
-                            y="12"
-                            width="3"
-                            height="6"
-                        />
-                        <rect
-                            x="13"
-                            y="8"
-                            width="3"
-                            height="10"
-                        />
-                        <rect
-                            x="19"
-                            y="4"
-                            width="3"
-                            height="14"
-                        />
-                    </svg>
-                </a>
-            </div>
-        </header>
-        <div class="container-tabuleiro">
-            <div class="Quadrado" id="q1"></div>
-            <div class="Quadrado" id="q2"></div>
-            <div class="Quadrado" id="q3"></div>
-            <div class="Quadrado" id="q4"></div>
-            <div class="Quadrado" id="q5"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-            <div class="Quadrado"></div>
-        </div>
-        <div class="container-teclado">
-            <div class="teclado">
-                <div class="linha-teclado"></div>
-                <button class="letras">Q</button>
-                <button class="letras">W</button>
-                <button class="letras verde">E</button>
-                <button class="letras verde">R</button>
-                <button class="letras">T</button>
-                <button class="letras">Y</button>
-                <button class="letras verde">U</button>
-                <button class="letras">I</button>
-                <button class="letras cinza">O</button>
-                <button class="letras">P</button>
-                <div class="teclado">
-                    <button class="letras cinza">A</button>
-                    <button class="letras verde">S</button>
-                    <button class="letras">D</button>
-                    <button class="letras">F</button>
-                    <button class="letras cinza">G</button>
-                    <button class="letras">H</button>
-                    <button class="letras">J</button>
-                    <button class="letras cinza">K</button>
-                    <button class="letras cinza">L</button>
-                    <div class="teclado">
-                        <button class="ctrl">ENTER</button>
-                        <button class="letras">Z</button>
-                        <button class="letras">X</button>
-                        <button class="letras verde">C</button>
-                        <button class="letras">V</button>
-                        <button class="letras cinza">B</button>
-                        <button class="letras cinza">N</button>
-                        <button class="letras">M</button>
-                        <button class="ctrl">
-                            <svg
-                                aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="12"
-                                viewBox="0 0 24 24"
-                                width="12"
-                                class="game-icon"
-                                data-testid="icon-backspace"
-                            >
-                                <path fill="var(--color-tone-1)" d="M22 3H7c-.69 0-1.23.35-1.59.88L0 12l5.41 8.11c.36.53.9.89 1.59.89h15c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H7.07L2.4 12l4.66-7H22v14zm-11.59-2L14 13.41 17.59 17 19 15.59 15.41 12 19 8.41 17.59 7 14 10.59 10.41 7 9 8.41 12.59 12 9 15.59z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <script src="/meujs.js"></script>
-                </body>
-            </html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wordle - Versão Clone</title>
+  <link rel="stylesheet" href="./stylle.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>Wordle</h1>
+  </header>
+
+  <!-- Tabuleiro com 6 linhas -->
+  <div class="container-tabuleiro">
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+    <div class="linha">
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+      <div class="Quadrado"></div>
+    </div>
+  </div>
+
+  <!-- Teclado Virtual -->
+  <div class="container-teclado">
+    <div class="linha-teclado">
+      <button class="letras">Q</button>
+      <button class="letras">W</button>
+      <button class="letras">E</button>
+      <button class="letras">R</button>
+      <button class="letras">T</button>
+      <button class="letras">Y</button>
+      <button class="letras">U</button>
+      <button class="letras">I</button>
+      <button class="letras">O</button>
+      <button class="letras">P</button>
+    </div>
+    <div class="linha-teclado">
+      <button class="letras">A</button>
+      <button class="letras">S</button>
+      <button class="letras">D</button>
+      <button class="letras">F</button>
+      <button class="letras">G</button>
+      <button class="letras">H</button>
+      <button class="letras">J</button>
+      <button class="letras">K</button>
+      <button class="letras">L</button>
+    </div>
+    <div class="linha-teclado">
+      <button class="ctrl">ENTER</button>
+      <button class="letras">Z</button>
+      <button class="letras">X</button>
+      <button class="letras">C</button>
+      <button class="letras">V</button>
+      <button class="letras">B</button>
+      <button class="letras">N</button>
+      <button class="letras">M</button>
+      <button class="ctrl">⌫</button>
+    </div>
+  </div>
+
+  <script src="/meujs.js"></script>
+</body>
+</html>

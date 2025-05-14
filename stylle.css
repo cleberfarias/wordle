@@ -11,15 +11,15 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
     background-color: #fff;
     font-weight: bold;
     font-size: 20px;
-
 }
 
+/* Header fixo no topo */
 header {
     position: fixed;
     top: 0;
@@ -31,6 +31,7 @@ header {
     border-bottom: 1px solid #d3d6da;
     background-color: #fff;
     z-index: 1000;
+    height: 60px;
 }
 
 .botao-hamburguer {
@@ -57,87 +58,97 @@ header {
     cursor: pointer;
 }
 
+/* Tabuleiro */
 .container-tabuleiro {
+    margin-top: 80px; /* Compensa o header fixo */
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.linha {
+    display: flex;
     justify-content: center;
-    max-width: 250px;
-    margin-top: 0;
+    gap: 5px;
 }
 
 .Quadrado {
-    width: 41px;
-    height: 41px;
-    margin: 2px;
-    border: 1.5px solid #d3d6da;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #d3d6da;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: #000;
-    font-size: 20px;
-    box-sizing: border-box;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Cores do feedback */
 .verde, .letras.verde {
     background-color: #6aaa64;
-    border: 1.5px solid #6aaa64;
+    border-color: #6aaa64;
     color: #fff;
 }
 
 .amarelo, .letras.amarelo {
     background-color: #c9b458;
-    border: 1.5px solid #c9b458;
+    border-color: #c9b458;
     color: #fff;
 }
 
 .cinza, .letras.cinza {
     background-color: #787c7e;
-    border: 1.5px solid #787c7e;
+    border-color: #787c7e;
     color: #fff;
 }
 
+/* Teclado */
 .container-teclado {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 9px;
+    margin-top: 20px;
 }
 
 .teclado {
     width: 100%;
     max-width: 430px;
     text-align: center;
-    
 }
 
 .linha-teclado {
-    
     display: flex;
     justify-content: center;
     gap: 4px;
+    margin-bottom: 5px;
 }
 
 .letras,
-.enter,
 .ctrl {
-    
-    height: 38px;
+    height: 45px;
+    min-width: 35px;
+    padding: 0 6px;
     border: none;
-    border-radius: 2px;
+    border-radius: 4px;
     font-weight: bold;
     cursor: pointer;
     background-color: #d3d4d8;
-    margin: 0 0 5px;
     box-sizing: border-box;
+    text-transform: uppercase;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-.letras {
-    width: 28px;
-}
-
-.enter,
 .ctrl {
-    width: 50px;
-    font-size: 0.75rem;
+    width: 60px;
+}
+
+.letras:hover,
+.ctrl:hover {
+    filter: brightness(0.95);
 }

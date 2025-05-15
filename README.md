@@ -9,7 +9,7 @@ Este é um clone simples do jogo Wordle, desenvolvido em **HTML**, **CSS** e **J
 - ✅ Geração automática de uma **palavra por dia** com base na data.
 - 🖱️ Captura de letras via **botões clicáveis** na interface.
 - ⌨️ Simulação de teclado com **ENTER** e **BACKSPACE** (⌫).
-- 🎨 **Feedback visual com cores** (verde, cinza etc.) — **em construção**.
+- 🎨 **Feedback visual com cores** (verde, cinza etc.) — .
 - 🔒 Verificação da palavra digitada após 5 letras.
 - ❌ Alerta de tentativas restantes após erro.
 

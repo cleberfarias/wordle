@@ -19,7 +19,7 @@ body {
     font-size: 20px;
 }
 
-/* Header fixo no topo */
+
 header {
     position: fixed;
     top: 0;
@@ -58,9 +58,9 @@ header {
     cursor: pointer;
 }
 
-/* Tabuleiro */
+
 .container-tabuleiro {
-    margin-top: 80px; /* Compensa o header fixo */
+    margin-top: 80px; 
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -88,7 +88,7 @@ header {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Cores do feedback */
+
 .verde, .letras.verde {
     background-color: #6aaa64;
     border-color: #6aaa64;
@@ -107,7 +107,7 @@ header {
     color: #fff;
 }
 
-/* Teclado */
+
 .container-teclado {
     display: flex;
     flex-direction: column;

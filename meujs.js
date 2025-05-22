@@ -7,19 +7,23 @@
 //  * implementar logica de cores no teclado
 //  */
 
-const palavraPorDia = [
-  "MANGA",
-  "LENTE",
-  "NUVEM",
-  "TIGRE",
-  "PIANO",
-  "FESTA",
-  "BOLHA",
-];
-const diaDaSemana = new Date().getDay();
+const palavras = {
+  20250521: "MANGA",
+  20250522: "LENTE",
+  20250523: "NUVEM",
+  20250524: "TIGRE",
+  20250525: "PIANO",
+  20250526: "FESTA",
+  20250527: "BOLHA",
+};
 
-const palavraSecreta = palavraPorDia[diaDaSemana];
-console.log("Palavra secreta do dia:", palavraSecreta);
+const hoje = new Date();
+const yyyy = hoje.getFullYear();
+const mm = String(hoje.getMonth() + 1).padStart(2, "0");
+const dd = String(hoje.getDate()).padStart(2, "0");
+const dataHoje = `${yyyy}${mm}${dd}`;
+
+const palavraSecreta = palavras[dataHoje];
 
 // Seleciona elementos
 const botoesTeclado = document.querySelectorAll(".letras, .ctrl");
@@ -30,6 +34,13 @@ let posicaoAtual = 0;
 const maxTentativas = 6;
 const tamanhoPalavra = 5;
 
+function atualizarLinhaAtual() {
+  linhas.forEach((linha, index) => {
+    linha.classList.toggle("linha-atual", index === tentativaAtual);
+  });
+}
+atualizarLinhaAtual()
+
 //FUNÇÃO PARA CAPTURAR A LETRA  LOGICA DO JOGO
 function capturaLetra(tecla) {
   //
@@ -39,7 +50,18 @@ function capturaLetra(tecla) {
   // ENTER
   if (tecla === "ENTER") {
     if (posicaoAtual < tamanhoPalavra) {
-      alert("Digite 5 letras antes de enviar.");
+      const linhaAtual = document.querySelector(".linha-atual");
+      if (linhaAtual) {
+        linhaAtual.classList.add("shake");
+
+        linhaAtual.addEventListener(
+          "animationend",
+          () => {
+            linhaAtual.classList.remove("shake");
+          },
+          { once: true }
+        );
+      }
       return;
     }
 
@@ -99,6 +121,7 @@ function capturaLetra(tecla) {
 
     // Avança para a próxima tentativa
     tentativaAtual++;
+    atualizarLinhaAtual()
     posicaoAtual = 0;
 
     if (tentativaAtual >= maxTentativas) {

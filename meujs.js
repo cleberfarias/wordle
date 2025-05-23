@@ -2,7 +2,7 @@
 //  * captura de letras do teclado
 //  * gerar uma palavra por dia
 //  * selecionar a letra no quadrado
-//  * colocar logica para descobri a letra no clicando no quadrado
+//  * colocar logica para descobrir a letra clicando no quadrado
 //  * implementar logica com as cores
 //  * implementar logica de cores no teclado
 //  */
@@ -17,12 +17,12 @@ const palavras = {
   20250527: "BOLHA",
 };
 
+// Gera a palavra do dia
 const hoje = new Date();
 const yyyy = hoje.getFullYear();
 const mm = String(hoje.getMonth() + 1).padStart(2, "0");
 const dd = String(hoje.getDate()).padStart(2, "0");
 const dataHoje = `${yyyy}${mm}${dd}`;
-
 const palavraSecreta = palavras[dataHoje];
 
 // Seleciona elementos
@@ -34,33 +34,39 @@ let posicaoAtual = 0;
 const maxTentativas = 6;
 const tamanhoPalavra = 5;
 
+// Atualiza a linha ativa visualmente
 function atualizarLinhaAtual() {
   linhas.forEach((linha, index) => {
     linha.classList.toggle("linha-atual", index === tentativaAtual);
   });
 }
-atualizarLinhaAtual()
+atualizarLinhaAtual();
 
-//FUNÇÃO PARA CAPTURAR A LETRA  LOGICA DO JOGO
+// Exibe aviso flutuante na tela
+function mostrarAviso(mensagem) {
+  const aviso = document.getElementById("aviso");
+  aviso.textContent = mensagem;
+  aviso.classList.add("mostrar");
+
+  setTimeout(() => {
+    aviso.classList.remove("mostrar");
+  }, 2000);
+}
+
+// Lógica principal de captura e resposta da letra
 function capturaLetra(tecla) {
-  //
   const linha = linhas[tentativaAtual];
   const quadrados = linha.querySelectorAll(".Quadrado");
 
-  // ENTER
   if (tecla === "ENTER") {
+    // Se ainda não completou a palavra
     if (posicaoAtual < tamanhoPalavra) {
       const linhaAtual = document.querySelector(".linha-atual");
       if (linhaAtual) {
         linhaAtual.classList.add("shake");
-
-        linhaAtual.addEventListener(
-          "animationend",
-          () => {
-            linhaAtual.classList.remove("shake");
-          },
-          { once: true }
-        );
+        linhaAtual.addEventListener("animationend", () => {
+          linhaAtual.classList.remove("shake");
+        }, { once: true });
       }
       return;
     }
@@ -71,11 +77,25 @@ function capturaLetra(tecla) {
       palavraDigitada += quadrados[i].textContent;
     }
 
-    // Lógica de verificação de cores
+    // --- Aqui você pode reativar a validação por dicionário ou lista ---
+    // if (!Object.values(palavras).includes(palavraDigitada)) {
+    //   mostrarAviso("⚠️ Palavra não existe no jogo!");
+    //   const linhaAtual = document.querySelector(".linha-atual");
+    //   if (linhaAtual) {
+    //     linhaAtual.classList.add("shake");
+    //     linhaAtual.addEventListener("animationend", () => {
+    //       linhaAtual.classList.remove("shake");
+    //     }, { once: true });
+    //   }
+    //   return;
+    // }
+
+    // Verificação de letras e aplicação de cores
     const usada = Array(tamanhoPalavra).fill(false);
     const cores = Array(tamanhoPalavra).fill("cinza");
     const statusLetras = {};
-    // Primeira passada: verde
+
+    // Primeira passada: letras certas no lugar certo (verde)
     for (let i = 0; i < palavraSecreta.length; i++) {
       const letra = palavraDigitada[i];
       if (letra === palavraSecreta[i]) {
@@ -85,10 +105,10 @@ function capturaLetra(tecla) {
       }
     }
 
-    // Segunda passada: amarelo
+    // Segunda passada: letras certas no lugar errado (amarelo)
     for (let i = 0; i < palavraSecreta.length; i++) {
       const letra = palavraDigitada[i];
-      if (palavraDigitada[i] !== palavraSecreta[i]) {
+      if (letra !== palavraSecreta[i]) {
         const posicaoNaSecreta = palavraSecreta.indexOf(letra);
         if (posicaoNaSecreta !== -1 && !usada[posicaoNaSecreta]) {
           cores[i] = "amarelo";
@@ -112,23 +132,21 @@ function capturaLetra(tecla) {
 
     // Verifica se acertou
     if (palavraDigitada === palavraSecreta) {
-      setTimeout(
-        () => alert(`✅ Você acertou! A palavra era ${palavraSecreta}.`),
-        300
-      );
+      setTimeout(() => {
+        alert(`✅ Você acertou! A palavra era ${palavraSecreta}.`);
+      }, 300);
       return;
     }
 
-    // Avança para a próxima tentativa
+    // Avança para próxima linha
     tentativaAtual++;
-    atualizarLinhaAtual()
+    atualizarLinhaAtual();
     posicaoAtual = 0;
 
     if (tentativaAtual >= maxTentativas) {
-      setTimeout(
-        () => alert(`💀 Fim de jogo. A palavra era ${palavraSecreta}.`),
-        300
-      );
+      setTimeout(() => {
+        alert(`💀 Fim de jogo. A palavra era ${palavraSecreta}.`);
+      }, 300);
     }
 
     return;
@@ -143,7 +161,7 @@ function capturaLetra(tecla) {
     return;
   }
 
-  // Digita letra (limite de 5 por linha)
+  // Digitação de letra normal
   if (
     tecla.length === 1 &&
     tecla.match(/[A-Z]/) &&
@@ -153,6 +171,7 @@ function capturaLetra(tecla) {
     posicaoAtual++;
   }
 
+  // Atualiza as cores do teclado
   function pintarTeclado(statusLetras) {
     const botoes = document.querySelectorAll(".letras");
 
@@ -163,7 +182,6 @@ function capturaLetra(tecla) {
       if (status) {
         botao.classList.remove("verde", "amarelo", "cinza");
 
-        // Impede sobrescrever verde por amarelo/cinza
         if (
           status === "verde" ||
           (status === "amarelo" && !botao.classList.contains("verde")) ||
@@ -180,16 +198,17 @@ function capturaLetra(tecla) {
   console.log(`Tecla clicada: ${tecla}`);
 }
 
+// Teclado físico
 document.addEventListener("keydown", function (e) {
   const teclado = e.key.toUpperCase().trim();
   capturaLetra(teclado);
   console.log("tecla precionada", teclado);
 });
 
+// Teclado virtual
 botoesTeclado.forEach(function (botao) {
   botao.addEventListener("click", function () {
     let tecla = botao.textContent.trim();
-    //Tratar o botão backspace ícone
     if (botao.classList.contains("backspace")) {
       tecla = "backspace";
     }

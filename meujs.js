@@ -6,6 +6,7 @@ const palavras = {
   20250525: "PIANO",
   20250526: "FESTA",
   20250527: "BOLHA",
+  20250528: "TRENS"
 };
 
 const hoje = new Date();
